@@ -1,10 +1,10 @@
 <ion-header>
   <ion-navbar color="primary">
-    <!-- <ion-buttons end>
+    <ion-buttons end>
         <button ion-button icon-only (click)="logout()">
           <ion-icon name="log-out"></ion-icon>
         </button>
-      </ion-buttons> -->
+      </ion-buttons>
     <ion-title>Welcome</ion-title>
   </ion-navbar>
 </ion-header>
@@ -22,6 +22,8 @@
     </ion-item>
   </ion-list>
 
-  <button <button ion-button (click)="takePhoto()">Take Photo</button>  
-
+  <button class="media" ion-button (click)="takePhoto()" round>Upload Picture</button> 
+  <button class="media" ion-button (click)="takeResume()" round>Upload Resume</button> 
+  <button class="media" ion-button (click)="takeVoice()" round>Upload Voice</button>  
+  
 </ion-content>

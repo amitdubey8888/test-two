@@ -5,18 +5,23 @@
 </ion-header>
 
 <ion-content>
+  
   <h4>{{loginerror}}</h4>
-  <ion-item>
+  
+  <form [formGroup]="slideOneForm">
+  
+    <ion-item>
       <ion-label floating>Email</ion-label>
-      <ion-input type="text" [(ngModel)]="userDetails.userEmail"></ion-input>
-  </ion-item>
+      <ion-input formControlName="email" type="text" [(ngModel)]="userDetails.userEmail"></ion-input>
+    </ion-item>
   
-  <ion-item>
+    <ion-item>
       <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="userDetails.userPassword"></ion-input>
-  </ion-item>
+      <ion-input formControlName="password" type="password" [(ngModel)]="userDetails.userPassword"></ion-input>
+    </ion-item>
   
-  <button ion-button full primary (click)="login()">Login</button>
-  <button ion-button full primary (click)="signup()">Sign UP</button>
+    <button ion-button full primary (click)="login()">Login</button>
+
+  </form>
 
 </ion-content>

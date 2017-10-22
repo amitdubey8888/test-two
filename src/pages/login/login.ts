@@ -4,17 +4,24 @@ import { AngularFireAuth} from 'angularfire2/auth';
 import { UserDetails } from '../../modal/users/user.interface';
 import { HomePage } from '../home/home';
 import { WelcomePage } from '../welcome/welcome';
-import { SignupPage } from '../signup/signup';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
+  
+  slideOneForm: FormGroup;
 
   userDetails = {} as UserDetails;
   loginerror:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
+  
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
+    this.slideOneForm = formBuilder.group({
+      email: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+    });
   }
   
   async login(userDetails: UserDetails){
@@ -45,8 +52,4 @@ export class LoginPage {
     }
   }
 
-  signup(){
-    this.navCtrl.push(SignupPage);
-  }
-  
 }

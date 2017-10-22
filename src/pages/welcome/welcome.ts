@@ -83,6 +83,12 @@ export class WelcomePage {
     console.log(e);
   }
 }
+takeResume(){
+ console.log('Getting Resume');
+}
+takeVoice(){
+ console.log('Getting Voice');
+}
   logout(){
     this.navCtrl.setRoot(HomePage);
   }
