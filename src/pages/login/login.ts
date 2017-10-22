@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFireAuth} from 'angularfire2/auth';
 import { UserDetails } from '../../modal/users/user.interface';
 import { HomePage } from '../home/home';
 import { WelcomePage } from '../welcome/welcome';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'page-login',
@@ -12,16 +12,18 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginPage {
   
-  slideOneForm: FormGroup;
+  loginForm: FormGroup;
 
   userDetails = {} as UserDetails;
   loginerror:any;
   
   constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, private afAuth: AngularFireAuth) {
-    this.slideOneForm = formBuilder.group({
+   
+    this.loginForm = formBuilder.group({
       email: ['', Validators.compose([Validators.maxLength(30), Validators.required])],
-      password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
+      password: ['', Validators.compose([Validators.minLength(6), Validators.required])]
     });
+  
   }
   
   async login(userDetails: UserDetails){

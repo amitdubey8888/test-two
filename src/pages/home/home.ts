@@ -17,8 +17,6 @@ export class HomePage {
       this.email = data;
       if(this.email != null){
         this.navCtrl.setRoot(WelcomePage);
-      }else{
-        console.log('Please login first!');
       }
    });
 

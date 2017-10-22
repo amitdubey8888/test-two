@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
-import * as firebase from 'firebase/app'
-import 'firebase/storage'
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
 import { AngularFireAuth } from 'angularfire2/auth';
