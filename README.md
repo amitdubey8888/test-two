@@ -1,6 +1,6 @@
 # Ionic App Test
 
-This is a starter template for [Ionic](http://ionicframework.com/docs/) projects.
+This is a hybrid app projects .
 
 ## How to use this template
 
@@ -26,3 +26,4 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+### Author -- Amit Dubey
