@@ -23,7 +23,7 @@ This is a hybrid app projects .
 9. npm install firebase angularfire2@2.0.0-beta.2 --save 
 10. typings install --save --global firebase
 
-###You can use these command according to your need.
+You can use these command according to your need.
 
 #### For help/Error Contact me.
 
