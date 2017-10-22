@@ -12,13 +12,19 @@ This is a hybrid app projects .
 
 ### Some Usefull Command related to this project:
 
-$ sudo npm install -g ionic cordova
-$ ionic start test-two blank
-$ cd test-two
-$ ionic serve
-$ ionic cordova platform add ios
-$ ionic cordova run ios
+1. npm install -g ionic cordova
+2. ionic start test-two blank
+3. cd test-two
+4. ionic serve
+5. ionic cordova platform add ios
+6. ionic cordova run ios
+7. npm install angularfire2 --save
+8. npm install -g ionic@beta cordova typings
+9. npm install firebase angularfire2@2.0.0-beta.2 --save 
+10. typings install --save --global firebase
 
-### Author -- Amit Dubey
+###You can use these command according to your need.
 
-#### For help/Error Contact me
+#### For help/Error Contact me.
+
+##### Author -- Amit Dubey
