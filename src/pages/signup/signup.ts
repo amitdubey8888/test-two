@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
 import { Storage } from '@ionic/storage';
 import { AngularFireAuth} from 'angularfire2/auth';
 import { WelcomePage } from '../welcome/welcome';
@@ -28,7 +28,7 @@ export class SignupPage {
              userName:this.userDetails.userName,
              userEmail:this.userDetails.userEmail,
              userPassword:this.userDetails.userPassword,
-             userPhone:Number(this.userDetails.userPhone),
+             userPhone:this.userDetails.userPhone,
              userAddress:this.userDetails.userAddress,
              userState:this.userDetails.userState,
              userCity:this.userDetails.userCity

@@ -6,9 +6,8 @@ import { IonicStorageModule } from '@ionic/storage';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFireModule ,FirebaseListObservable} from 'angularfire2';
-import { FIREBASE_CREDENTIALS } from './firebase.credentials';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { MyApp } from './app.component';
@@ -16,6 +15,16 @@ import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
 import { WelcomePage } from '../pages/welcome/welcome';
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyBtPUgFfBKALmJyN3U7rq1y6sB1Geob8CU",
+  authDomain: "test-two-20255.firebaseapp.com",
+  databaseURL: "https://test-two-20255.firebaseio.com",
+  projectId: "test-two-20255",
+  storageBucket: "test-two-20255.appspot.com",
+  messagingSenderId: "603922330092"
+}
 
 @NgModule({
   declarations: [
@@ -28,9 +37,9 @@ import { WelcomePage } from '../pages/welcome/welcome';
   imports: [
     BrowserModule,
     HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    AngularFireModule.initializeApp(FIREBASE_CREDENTIALS),
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot({
       name: '__mydb',
@@ -49,7 +58,7 @@ import { WelcomePage } from '../pages/welcome/welcome';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AngularFireAuthModule,
+    AngularFireAuthModule
   ]
 })
 export class AppModule {}
