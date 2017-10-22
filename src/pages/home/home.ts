@@ -10,12 +10,12 @@ import { LoginPage } from '../login/login';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  email:any;
+  email:any='';
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams) {
 
     this.storage.get('userData').then((data) => {
       this.email = data;
-      if(this.email['userEmail'] != ''){
+      if(this.email != null){
         this.navCtrl.setRoot(WelcomePage);
       }else{
         console.log('Please login first!');

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import { storage } from 'firebase';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireDatabase, FirebaseListObservable } from "angularfire2/database-deprecated";
 import { AngularFireAuth } from 'angularfire2/auth';
 import { UserDetails } from '../../modal/users/user.interface';
@@ -10,28 +12,37 @@ import { HomePage } from '../home/home';
   selector: 'page-welcome',
   templateUrl: 'welcome.html',
 })
+
 export class WelcomePage {
-  users: FirebaseListObservable<any[]>;
-  userDetails:any;
-  userName:any;
-  userEmail:any;
-  userPhone:any;
-  userAddress:any;   
-  userState:any;
-  userCity:any;
-  
-  constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams, public toast: ToastController, private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
-    this.users = database.list('/user-details');
-    console.log(this.users);
-    // this.users.subscribe(x=>console.log(x));
+  users: FirebaseListObservable<UserDetails[]>;
+  userDetails:any='';
+  name:any='';
+  email:any='';
+  phone:any='';
+  address:any='';   
+  state:any='';
+  city:any='';
+  userName:string;
+  userEmail:string;
+  userPassword:string;
+  userPhone:string;
+  userAddress:string;
+  userState:string;
+  userCity:string;
+  constructor(private camera:Camera, private storage: Storage, public navCtrl: NavController, public navParams: NavParams, public toast: ToastController, private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
+    
+    this.users = database.list('user-details');
+
     this.storage.get('userData').then((data) => {
       this.userDetails = data;
-      this.userName = this.userDetails['userName'];
-      this.userEmail = this.userDetails['userEmail'];
-      this.userPhone = this.userDetails['userPhone'];
-      this.userAddress = this.userDetails['userAddress'];
-      this.userState = this.userDetails['userState'];
-      this.userCity = this.userDetails['userCity'];
+      if(this.userDetails != null){
+      if(this.userDetails['userName'] != ''){ this.name = this.userDetails['userName'];}
+      if(this.userDetails['userEmail'] != ''){ this.email = this.userDetails['userEmail'];}
+      if(this.userDetails['userPhone'] != ''){ this.phone = this.userDetails['userPhone'];}
+      if(this.userDetails['userAddress'] != ''){ this.address = this.userDetails['userAddress'];}
+      if(this.userDetails['userState'] != ''){ this.state = this.userDetails['userState'];}
+      if(this.userDetails['userCity'] != ''){ this.city = this.userDetails['userCity'];}
+      }
    });
   }
   
@@ -52,8 +63,12 @@ export class WelcomePage {
       }
     });
   }
+  takePhoto(){
+    const options: CameraOptions = {
+      
+    }
+  }
   logout(){
     this.navCtrl.setRoot(HomePage);
-    this.storage.clear();
   }
 }

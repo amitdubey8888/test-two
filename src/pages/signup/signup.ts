@@ -13,7 +13,7 @@ import { UserDetails } from '../../modal/users/user.interface';
 export class SignupPage {
 
   userDetails = {} as UserDetails;
-  userDetailsRef$: FirebaseListObservable<UserDetails>;
+  userDetailsRef$: FirebaseListObservable<UserDetails[]>;
 
   constructor(private storage: Storage, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController , private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.userDetailsRef$ = this.database.list('user-details');
