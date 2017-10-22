@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Sign UP</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+      <ion-label floating>Name</ion-label>
+      <ion-input type="text" [(ngModel)]="userDetails.userName"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="userDetails.userEmail"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="userDetails.userPassword"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Phone</ion-label>
+      <ion-input type="number" [(ngModel)]="userDetails.userPhone"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>Address</ion-label>
+      <ion-input type="text" id="zip" name="zip" [(ngModel)]="userDetails.userAddress"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>State</ion-label>
+      <ion-input type="text" [(ngModel)]="userDetails.userState"></ion-input>
+  </ion-item>
+
+  <ion-item>
+      <ion-label floating>City</ion-label>
+      <ion-input type="text" [(ngModel)]="userDetails.userCity"></ion-input>
+  </ion-item>
+
+  <button ion-button block (click)="signup(userDetails)">Sign Up</button>
+
+</ion-content>

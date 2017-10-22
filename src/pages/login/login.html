@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h4>{{loginerror}}</h4>
+  <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input type="text" [(ngModel)]="userDetails.userEmail"></ion-input>
+  </ion-item>
+  
+  <ion-item>
+      <ion-label floating>Password</ion-label>
+      <ion-input type="password" [(ngModel)]="userDetails.userPassword"></ion-input>
+  </ion-item>
+  
+  <button ion-button full primary (click)="login()">Login</button>
+  <button ion-button full primary (click)="signup()">Sign UP</button>
+
+</ion-content>

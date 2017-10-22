@@ -1,0 +1,19 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+ion-header {
+    .toolbar-background {
+        background: linear-gradient(135deg, $header-first-color 0%, $header-last-color 100%);
+    }
+    .toolbar-title-md {
+        text-align: center;
+    }    
+}
+ion-toolbar.toolbar.toolbar-md {
+    text-align: -webkit-center;
+}
