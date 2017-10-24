@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
+import { NavController, NavParams, ToastController, AlertController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import * as firebase from 'firebase/app';
 import 'firebase/storage';
@@ -30,7 +30,7 @@ export class WelcomePage {
   userAddress:string;
   userState:string;
   userCity:string;
-  constructor(private camera:Camera, private storage: Storage, public navCtrl: NavController, public navParams: NavParams, public toast: ToastController, private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  constructor(private camera:Camera, private storage: Storage, public navCtrl: NavController, public alertCtrl: AlertController, public navParams: NavParams, public toast: ToastController, private database: AngularFireDatabase, private afAuth: AngularFireAuth) {
     
     this.users = database.list('user-details');
 
@@ -83,13 +83,21 @@ export class WelcomePage {
     console.log(e);
   }
 }
+
 takeResume(){
- console.log('Getting Resume');
+ this.alertCtrl.create({
+   title: 'Resume Upload Failed!',
+   subTitle: 'Please try again.',
+   buttons: ['Ok']
+ }).present();
 }
+
 takeVoice(){
- console.log('Getting Voice');
+  this.alertCtrl.create({
+    title: 'Voice upload failed!',
+    subTitle: 'Please try again.',
+    buttons: ['Ok']
+  }).present();
 }
-  logout(){
-    this.navCtrl.setRoot(HomePage);
-  }
+
 }
